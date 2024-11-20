@@ -1,6 +1,6 @@
 # Onre
 
-A game about a haunting. License, this game is something I am doing on my free time. I may try to sell this game on steam or itch.io however, the images are not mine so to get them for now, you have to download them 
+A game about a haunting. License, this game is something I am doing in my free time. I may try to sell this game on steam or itch.io however, the images are not mine so to get them for now, you have to download them 
 to test out the program. ALLEGRO5 is used for the Graphics and C++ is the main langauges of the program. You are allow to use the program to study in its current state. 
 
 
