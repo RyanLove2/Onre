@@ -176,8 +176,8 @@ void DisplaySprite(Window * w){
 			//al_draw_bitmap(walk[i], vecx, vecy, face);
 			//top += top*speed+1*delta/2;
 			//bottom += bottom*speed+1*delta/2;
-            vecy+= GravityFall(delta);
-            top += (GetAcceleration()* GetTime())*delta/60;
+            		vecy+= GravityFall(delta);
+            		top += (GetAcceleration()* GetTime())*delta/60;
 			bottom += (GetAcceleration()*GetTime())*delta/60;
 
 		}
