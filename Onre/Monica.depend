@@ -1,0 +1,125 @@
+# depslib dependency file v1.0
+1732075122 source:/home/ryan/Desktop/AllegroGameProject/Monica/main.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"Onre.cpp"
+
+1731834248 source:/home/ryan/Desktop/AllegroGameProject/Monica/Window.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"Window.h"
+
+1731818448 /home/ryan/Desktop/AllegroGameProject/Monica/player.cpp
+	<allegro5/allegro.h>
+	"Window.h"
+
+1731817170 /home/ryan/Desktop/AllegroGameProject/Monica/Window.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"Window.h"
+
+1731990008 /home/ryan/Desktop/AllegroGameProject/Monica/Window.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+
+1731818448 source:/home/ryan/Desktop/AllegroGameProject/Monica/player.cpp
+	<allegro5/allegro.h>
+	"Window.h"
+
+1731823553 /home/ryan/Desktop/AllegroGameProject/Monica/Sprite.cpp
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Window.h"
+
+1731990448 source:/home/ryan/Desktop/AllegroGameProject/Monica/Sprite.cpp
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Sprite.h"
+
+1732080651 source:/home/ryan/Desktop/AllegroGameProject/Monica/Onre.cpp
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Gravity.h"
+	"Sprite.h"
+
+1731990464 /home/ryan/Desktop/AllegroGameProject/Monica/Sprite.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Window.h"
+
+1732080651 /home/ryan/Desktop/AllegroGameProject/Monica/Onre.cpp
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Gravity.h"
+	"Sprite.h"
+
+1732065212 source:/home/ryan/Desktop/AllegroGameProject/Monica/GameObject.cpp
+	"GameObject.h"
+
+1732083293 /home/ryan/Desktop/AllegroGameProject/Monica/GameObject.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	<iostream>
+	<vector>
+	<string>
+
+1731989130 source:/home/ryan/Desktop/AllegroGameProject/Monica/Collision.cpp
+	"Collision.h"
+
+1732079235 /home/ryan/Desktop/AllegroGameProject/Monica/Collision.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"Onre.cpp"
+	"GameObject.h"
+
+1732078608 /home/ryan/Desktop/AllegroGameProject/Monica/Gravity.h
+	<iostream>
+
+1732079075 source:/home/ryan/Desktop/AllegroGameProject/Monica/Gravity.cpp
+	"Gravity.h"
+
