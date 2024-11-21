@@ -7,17 +7,17 @@
 #include<allegro5/allegro_physfs.h>
 #include<allegro5/allegro_primitives.h>
 
-#include"Onre.cpp"
+
 #include"GameObject.h"
 
-class Collision :  public Onre{
+class Collision{
 
 	private:
 		float right, left,top, bottom;
 
 
 	public :
-		bool Collide(Onre player, Sprite enemy);
+		bool Collide(Onre player, GameObject enemy);
 		bool CollideForGround(Onre player, GameObject ground);
 		Collision();
 		~Collision();

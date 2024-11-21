@@ -123,3 +123,110 @@
 1732079075 source:/home/ryan/Desktop/AllegroGameProject/Monica/Gravity.cpp
 	"Gravity.h"
 
+1732157647 source:/home/ryan/Desktop/AllegroGameProject/Onre/Collision.cpp
+	"Collision.h"
+
+1732158826 /home/ryan/Desktop/AllegroGameProject/Onre/Collision.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"GameObject.h"
+
+1732158819 /home/ryan/Desktop/AllegroGameProject/Onre/Onre.cpp
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Gravity.h"
+	"Window.h"
+
+1732158087 /home/ryan/Desktop/AllegroGameProject/Onre/Gravity.h
+	<iostream>
+
+1731990464 /home/ryan/Desktop/AllegroGameProject/Onre/Sprite.h
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Window.h"
+
+1732137944 /home/ryan/Desktop/AllegroGameProject/Onre/Window.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"ChangeDir.h"
+
+1732158815 /home/ryan/Desktop/AllegroGameProject/Onre/GameObject.h
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	<iostream>
+	<vector>
+	<string>
+	"Onre.cpp"
+
+1732158531 source:/home/ryan/Desktop/AllegroGameProject/Onre/GameObject.cpp
+	"GameObject.h"
+
+1732079074 source:/home/ryan/Desktop/AllegroGameProject/Onre/Gravity.cpp
+	"Gravity.h"
+
+1732158473 source:/home/ryan/Desktop/AllegroGameProject/Onre/main.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"GameObject.h"
+
+1732157968 source:/home/ryan/Desktop/AllegroGameProject/Onre/Onre.cpp
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Gravity.h"
+	"Window.h"
+
+1731990448 source:/home/ryan/Desktop/AllegroGameProject/Onre/Sprite.cpp
+	<allegro5/allegro.h>
+	<allegro5/allegro_image.h>
+	"Sprite.h"
+
+1732138118 source:/home/ryan/Desktop/AllegroGameProject/Onre/Window.cpp
+	<iostream>
+	<allegro5/allegro.h>
+	<allegro5/allegro_audio.h>
+	<allegro5/allegro_image.h>
+	<allegro5/allegro_font.h>
+	<allegro5/allegro_color.h>
+	<allegro5/allegro_native_dialog.h>
+	<allegro5/allegro_opengl.h>
+	<allegro5/allegro_physfs.h>
+	<allegro5/allegro_primitives.h>
+	"Window.h"
+
+1732137862 source:/home/ryan/Desktop/AllegroGameProject/Onre/ChangeDir.cpp
+	"ChangeDir.h"
+
+1732131259 /home/ryan/Desktop/AllegroGameProject/Onre/ChangeDir.h
+	<iostream>
+	<string>
+	<allegro5/allegro.h>
+

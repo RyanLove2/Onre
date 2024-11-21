@@ -2,7 +2,9 @@
 #include<allegro5/allegro.h>
 #include<allegro5/allegro_image.h>
 #include"Gravity.h"
-#include"Sprite.h"
+
+#include"Window.h"
+
 
 using namespace std;
 
@@ -24,6 +26,8 @@ class Onre :  public Gravity {
 		bool fall;
 
 		bool motion;
+
+
 
 		ALLEGRO_BITMAP *attack1[5];
 		ALLEGRO_BITMAP *attack2[4];
@@ -79,7 +83,7 @@ class Onre :  public Gravity {
 				break;
 
 				case ALLEGRO_KEY_LEFT:
-					std::cout<<"Move left";
+				//	std::cout<<"Move left";
 					motion = true;
 					face = 1;
 
@@ -96,7 +100,7 @@ class Onre :  public Gravity {
 				// test case for hitbox
 				case ALLEGRO_KEY_T:
 					showhitbox++;
-					std::cout<<"SHOW HIT BOX";
+				//	std::cout<<"SHOW HIT BOX";
 				break;
 
 				case ALLEGRO_KEY_DOWN:
@@ -176,9 +180,9 @@ void DisplaySprite(Window * w){
 			//al_draw_bitmap(walk[i], vecx, vecy, face);
 			//top += top*speed+1*delta/2;
 			//bottom += bottom*speed+1*delta/2;
-            		vecy+= GravityFall(delta);
-            		top += (GetAcceleration()* GetTime())*delta/60;
-			bottom += (GetAcceleration()*GetTime())*delta/60;
+            vecy+= GravityFall(delta);
+            top += (GetAcceleration()* GetTime())*delta/60;
+			bottom += (GetAcceleration()* GetTime())*delta/60;
 
 		}
 
@@ -220,7 +224,7 @@ void DisplaySprite(Window * w){
 		left = 205;
 		right = 220;
 
-		std::cout<<"motion: "<<motion<<std::endl;
+		//std::cout<<"motion: "<<motion<<std::endl;
 
 		vecx=vecy = 150;
 		custpath = al_create_path("");

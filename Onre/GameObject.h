@@ -14,21 +14,26 @@
 #include<string>
 
 
-class GameObject{
+
+#include"Onre.cpp"
+
+class GameObject {
 
 	private:
-		ALLEGRO_BITMAP* brush;
+		ALLEGRO_BITMAP* platforms;
 		float right, left,top, bottom;
-		float mg;
+
 		std::vector<std::string> id;
+
 
 
 	public:
 
 		bool DrawHitBox();
-		float Mass();
-		void SetMass(float value);
-		GameObject(std::string id);
+		void HitBox();
+		void SetHitBox(float f_top, float f_bottom);
+		void DrawObject(float x, float y,float f_top, int face);
+		GameObject(int land);
 		~GameObject();
 
 

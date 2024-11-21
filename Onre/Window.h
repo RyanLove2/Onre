@@ -8,14 +8,17 @@
 #include<allegro5/allegro_opengl.h>
 #include<allegro5/allegro_physfs.h>
 #include<allegro5/allegro_primitives.h>
+#include"ChangeDir.h"
 
-class Window{
+class Window {
 
 	private:
 		ALLEGRO_DISPLAY* window;
 		ALLEGRO_BITMAP* ic;
 		ALLEGRO_PATH* custpath;
 		int screenwidth, screenhight;
+
+
 
 
 		char name[20] = {"Onre"};
@@ -30,7 +33,7 @@ class Window{
 
 	public:
 
-		void SetPath();
+		void Win_handlePath();
 		ALLEGRO_TIMER* GetDelta();
 		ALLEGRO_TIMER* GetDeltaFrame();
 		ALLEGRO_EVENT_QUEUE* GetEventQue();
@@ -39,6 +42,5 @@ class Window{
 
 
 		Window();
-
 		~Window();
 };

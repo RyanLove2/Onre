@@ -9,8 +9,8 @@
 #include<allegro5/allegro_physfs.h>
 #include<allegro5/allegro_primitives.h>
 
-#include"Onre.cpp"
 
+#include"GameObject.h"
 
 
 using namespace std;
@@ -33,22 +33,33 @@ void StartUpLibraries(){
 
 }
 
+void LevelOneCreate(){
+
+
+
+}
+
 int main(int argc, char* argv[]){
 	StartUpLibraries();
 	bool run = true;
+
+
 	if(!al_init()){
 		//cout<<"ALLEGRO5 failed to start"<<endl;
 		return -1;
 	}
 	if(!al_init_image_addon()){
-		cout<<"al_init faild to be loaded";
+	//	cout<<"al_init faild to be loaded";
 		return -1;
 	}
 
 
 
 	Window *window = new Window();
+	window->Win_handlePath();
 	Onre *player = new Onre();
+	GameObject* land = new GameObject(0);
+
 
 	while(run == true){
 		al_wait_for_event(window->GetEventQue(),&window->GetEvent());
@@ -81,13 +92,15 @@ int main(int argc, char* argv[]){
 		if(window->render == true && al_is_event_queue_empty(window->GetEventQue())){
 
 			al_clear_to_color(al_map_rgb(0,140,0));
-			al_draw_filled_rectangle(150, 450, 750, 500, al_map_rgb(120,40,200));
-
+			//al_draw_filled_rectangle(150, 452, 750, 500, al_map_rgb(120,40,200));
+			land->DrawObject(150,450,451,0);//150 451
 			//void al_draw_filled_rectangle(float x1, float y1, float x2, float y2,ALLEGRO_COLOR color)
 			player->DisplaySprite(window);
 
+
 			al_flip_display();
 			window->render = false;
+
 		}
 
 	}

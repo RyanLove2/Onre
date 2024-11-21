@@ -11,14 +11,7 @@
 #include"Window.h"
 
 
-void Window::SetPath(){
-				//char * mypath = al_get_current_directory();
-				custpath = al_create_path("");
-				al_append_path_component(custpath,"Graphics");
-				al_change_directory(al_path_cstr(custpath,ALLEGRO_NATIVE_PATH_SEP));
-				std::cout<<al_get_current_directory();
-				std::cout<<"\n";
-}
+
 
 ALLEGRO_EVENT_QUEUE* Window::GetEventQue(){
 
@@ -26,23 +19,37 @@ ALLEGRO_EVENT_QUEUE* Window::GetEventQue(){
 }
 
 ALLEGRO_EVENT& Window::GetEvent(){
-			return eve;
+
+	return eve;
 }
 
 
 ALLEGRO_TIMER* Window::GetDelta(){
 
-return clock;
+	return clock;
 
 }
 
 ALLEGRO_TIMER* Window::GetDeltaFrame(){
+
 	return ani_frame;
+
+}
+
+void Window::Win_handlePath(){
+	ChangeDir dir;
+
+	dir.SetFolderName("Graphics");
+	dir.SetPath();
+	al_set_window_title(window,name);
+	ic = al_load_bitmap("icon.png");
+	al_set_display_icon(window,ic);
 }
 
 
 Window::Window(){
-	SetPath();
+	//SetPath();
+
 	render = true;
 	fps = 60.0;
 	ani_count = 15.0;
@@ -53,16 +60,8 @@ Window::Window(){
 	que = al_create_event_queue();
 	clock = al_create_timer(1.0/fps);
 	ani_frame = al_create_timer(1.0/ani_count);
-
 	window = al_create_display(screenwidth,screenhight);
-	al_set_window_title(window,name);
-	ic = al_load_bitmap("gameicon.png");
-	al_set_display_icon(window,ic);
 
-			//al_register_event_source(que,ALLEGRO_EVENT_SOURCE *source);
-
-
-			// Start the event queue to handle keyboard input and our timer
 	que = al_create_event_queue();
 	al_register_event_source(que, al_get_keyboard_event_source());
 	al_register_event_source(que, al_get_display_event_source(window));

@@ -14,7 +14,7 @@ Collision::~Collision(){
 };
 
 
-bool Collision::Collide(Onre player, Sprite enemy){
+bool Collision::Collide(Onre player, GameObject enemy){
 
 
 	return true;
