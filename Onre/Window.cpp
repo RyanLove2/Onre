@@ -79,6 +79,7 @@ Window::~Window(){
 	al_destroy_event_queue(que);
 	al_destroy_path(custpath);
 	al_destroy_timer(clock);
+	al_destroy_timer(ani_frame);
 	delete this;
 
 };

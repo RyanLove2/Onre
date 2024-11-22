@@ -15,14 +15,15 @@
 
 
 
-#include"Onre.cpp"
+
 
 class GameObject {
 
 	private:
 		ALLEGRO_BITMAP* platforms;
 		float right, left,top, bottom;
-
+		float y , x;
+		int face;
 		std::vector<std::string> id;
 
 
@@ -31,9 +32,16 @@ class GameObject {
 
 		bool DrawHitBox();
 		void HitBox();
-		void SetHitBox(float f_top, float f_bottom);
-		void DrawObject(float x, float y,float f_top, int face);
-		GameObject(int land);
+		void CreatePlatforms(int land);
+		void SetDrawObject(float x, float y,float f_top, int face);
+		void DrawObject();
+
+		float GetTop();
+		float GetBottom();
+		float GetRight();
+		float GetLeft();
+
+		GameObject();
 		~GameObject();
 
 

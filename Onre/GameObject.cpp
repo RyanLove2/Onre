@@ -1,18 +1,21 @@
 #include"GameObject.h"
 
 
-GameObject::GameObject(int land){
+GameObject::GameObject(){
+	this->face = 0;
 
-	al_init_primitives_addon();
-	ChangeDir* dir = new ChangeDir();
-
-	dir->SetFolderName("../Land");
-	dir->SetPath();
+}
 
 
+GameObject::~GameObject(){
 
-	// create a method that create objects based on strings values
-		switch( land){
+
+
+};
+
+void GameObject::CreatePlatforms(int land){
+
+	switch( land){
 			case 0:
 				platforms = al_load_bitmap("stone_platform.png");
 
@@ -31,24 +34,24 @@ GameObject::GameObject(int land){
 
 		}
 
-		//win.SetFolderName("Graphics");
-		//win.SetPath();
-		delete dir;
-}
-
-
-GameObject::~GameObject(){
-
-
-
-};
-
-void GameObject::SetHitBox(float f_top, float f_bottom ){
-
-
 
 }
 
+float GameObject::GetTop(){
+	return top;
+}
+
+float GameObject::GetBottom(){
+	return bottom;
+}
+
+float GameObject::GetRight(){
+	return right;
+}
+
+float GameObject::GetLeft(){
+	return left;
+}
 
 bool GameObject::DrawHitBox(){
 
@@ -56,20 +59,40 @@ bool GameObject::DrawHitBox(){
 	return true;
 }
 
-void GameObject::DrawObject(float x, float y,float f_top, int face ){
+void GameObject::SetDrawObject(float x, float y,float f_top, int face ){
 	left = x;
+	this->x = x;
+	this->y = y;
 	right = x + 50;
 	top = f_top;
 	bottom = f_top +50;
+	this->face = face;
+/*
 	if(platforms != 0){
+
+		al_draw_filled_rectangle(left,top,right,bottom,al_map_rgb(250,0,0));
 		al_draw_bitmap(platforms,x,y,face);
+		//al_draw_filled_rectangle(150,451,200,500,al_map_rgb(250,0,0));
+		//al_draw_filled_rectangle(left, top, right, bottom, al_map_rgb(0,0,200));
+	}
+	else{
+	//	std::cout<<"faild to load bmp :(";
+	}*/
+}
+
+void GameObject::DrawObject(){
+
+	if(platforms != 0){
+
 		al_draw_filled_rectangle(left,top,right,y,al_map_rgb(250,0,0));
+		al_draw_bitmap(platforms,left,top,face);
 		//al_draw_filled_rectangle(150,451,200,500,al_map_rgb(250,0,0));
 		//al_draw_filled_rectangle(left, top, right, bottom, al_map_rgb(0,0,200));
 	}
 	else{
 	//	std::cout<<"faild to load bmp :(";
 	}
+
 }
 
 void GameObject::HitBox(){

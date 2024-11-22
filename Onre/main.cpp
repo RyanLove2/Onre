@@ -9,8 +9,8 @@
 #include<allegro5/allegro_physfs.h>
 #include<allegro5/allegro_primitives.h>
 
+#include"Collision.h"
 
-#include"GameObject.h"
 
 
 using namespace std;
@@ -55,10 +55,69 @@ int main(int argc, char* argv[]){
 
 
 
+
+
+
 	Window *window = new Window();
 	window->Win_handlePath();
 	Onre *player = new Onre();
-	GameObject* land = new GameObject(0);
+
+
+	window->SetFolderName("../Land");
+	window->SetPath();
+	/*
+	GameObject* land = new GameObject();
+	GameObject* land1 = new GameObject();
+	GameObject* land2 = new GameObject();
+	GameObject* land3 = new GameObject();
+	GameObject* land4 = new GameObject();
+	*/
+
+	GameObject* land = new GameObject();
+	GameObject* land1 = new GameObject();
+	GameObject* land2 = new GameObject();
+	GameObject* land3 = new GameObject();
+	GameObject* land4 = new GameObject();
+
+	land->CreatePlatforms(0);
+	land1->CreatePlatforms(0);
+	land2->CreatePlatforms(0);
+	land3->CreatePlatforms(0);
+	land4->CreatePlatforms(0);
+
+	vector<GameObject*> plat;
+	plat = {land,land1,land2,land3, land4};
+
+	//GameObject* land2 = new GameObject();
+	Collision* BoxCollision = new Collision();
+
+
+
+	plat.push_back(land);
+	plat.push_back(land1);
+	plat.push_back(land2);
+	plat.push_back(land3);
+	plat.push_back(land4);
+
+/*
+	lands[0] = land;
+	lands[1] = land1;
+	lands[2] = land2;
+	lands[3] = land3;
+	lands[4] = land4;
+
+*/
+
+	land->SetDrawObject(200,450,451,0);
+	land1->SetDrawObject(247,450,451,0);
+	land2->SetDrawObject(295,450,451,0);
+	land3->SetDrawObject(342,450,451,0);
+	land4->SetDrawObject(389,450,451,0);
+
+
+
+	//land2->CreatePlatforms(0);
+
 
 
 	while(run == true){
@@ -89,13 +148,54 @@ int main(int argc, char* argv[]){
 
 		}
 
+
 		if(window->render == true && al_is_event_queue_empty(window->GetEventQue())){
 
 			al_clear_to_color(al_map_rgb(0,140,0));
 			//al_draw_filled_rectangle(150, 452, 750, 500, al_map_rgb(120,40,200));
-			land->DrawObject(150,450,451,0);//150 451
+			//land->DrawObject(200,450,451,0);//150 451
 			//void al_draw_filled_rectangle(float x1, float y1, float x2, float y2,ALLEGRO_COLOR color)
+			//land2->DrawObject(247,450,451,0);
+
+
+
+			//BoxCollision->CollideForGround(player , plat);
+			//land->DrawObject(52,450,451,0);
+			//land1->DrawObject(103,450,451,0);
+
+			//land3->DrawObject(247,450,451,0);
+			//land4->DrawObject(247,450,451,0);
+
+			//for(auto item: plat){
+
+			//land->DrawObject(200,450,451,0);
+
+			//
+
+			BoxCollision->CollideForGround(player , plat);
+
+
 			player->DisplaySprite(window);
+
+			//BoxCollision->CollideForGround(player , land);
+			//test = BoxCollision->CollideForGround(player , land3);
+
+
+
+
+			//player->SetFall(test);
+				//if(test == false){
+			//		player->SetFall(test);
+				//	break;
+			//	}
+
+
+		//	}
+
+
+
+
+
 
 
 			al_flip_display();

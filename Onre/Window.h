@@ -10,7 +10,7 @@
 #include<allegro5/allegro_primitives.h>
 #include"ChangeDir.h"
 
-class Window {
+class Window : public ChangeDir {
 
 	private:
 		ALLEGRO_DISPLAY* window;

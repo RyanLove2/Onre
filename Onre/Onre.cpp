@@ -4,7 +4,7 @@
 #include"Gravity.h"
 
 #include"Window.h"
-
+#include<iostream>
 
 using namespace std;
 
@@ -24,6 +24,7 @@ class Onre :  public Gravity {
 		// collision box variables
 		bool collide;
 		bool fall;
+		bool onground;
 
 		bool motion;
 
@@ -42,15 +43,51 @@ class Onre :  public Gravity {
 		ALLEGRO_BITMAP *tmp;
 		ALLEGRO_PATH   *custpath;
 
-		Gravity gr;
+		//Gravity gr;
 
 	public:
 
 
 
+		float GetTop(){
+			return top;
+		}
+
+		float GetBottom(){
+			return bottom;
+
+		}
+
+		float GetRight(){
+			return right;
+		}
+
+		float GetLeft(){
+			return left;
+
+		}
+
 		float Mass(){
 
             return mg;
+		}
+
+		bool SetFall(bool val){
+			fall = val;
+			return fall;
+		}
+
+		bool IsOnGround(){
+			return onground;
+		}
+
+		void SetIsOnGround(bool val){
+			 onground = val;
+		}
+
+		bool GetFall(){
+
+			return fall;
 		}
 
 		bool  Controls(Window *w){
@@ -142,11 +179,14 @@ class Onre :  public Gravity {
 
 void ShowHitBox(){
 
-
+	//cout<<"Player X location: "<< vecx<<endl;
+	//cout<<"Player Y location: "<< vecy<<endl;
+	//cout<<"IsOnGround: "<< IsOnGround()<<endl;
 	if(showhitbox == 1){
 		al_draw_filled_rectangle(left, top, right, bottom, al_map_rgb(0,0,200));//278
 		//al_draw_filled_rectangle(left, top, right, bottom, al_map_rgb(0,0,200));
 		//void al_draw_filled_rectangle(float x1, float y1, float x2, float y2,ALLEGRO_COLOR color)
+
 	}
 	else{
 		showhitbox = 0;
@@ -162,27 +202,27 @@ void DisplaySprite(Window * w){
 
 		if(motion == true && face == 1){// right face
 
-			vecx += vecx*speed-1*delta/25;
+			vecx += speed-1.5*delta/25.1;
 			al_draw_bitmap(walk[i], vecx, vecy, face);
-			right += right*speed-1*delta/25;
-			left += left*speed-1*delta/25;
+			right += speed-1.5*delta/25.1;
+			left += speed-1.5*delta/25.1;
 		}
 		else if(motion == true && face == 0){//left face
 
-			vecx += vecx*speed+1*delta/25;
+			vecx += speed+1.5*delta/25.1;
 			al_draw_bitmap(walk[i], vecx, vecy, face);
-			right += right*speed+1*delta/25;
-			left += left*speed+1*delta/25;
+			right += speed+1.5*delta/25.1;
+			left += speed+1.5*delta/25.1;
 		}
 
-		if(fall == true){
+		if(fall == true && onground == false){
 		   // vecy += vecy*speed+1*delta/2;
 			//al_draw_bitmap(walk[i], vecx, vecy, face);
 			//top += top*speed+1*delta/2;
 			//bottom += bottom*speed+1*delta/2;
             vecy+= GravityFall(delta);
-            top += (GetAcceleration()* GetTime())*delta/60;
-			bottom += (GetAcceleration()* GetTime())*delta/60;
+            top += (GetAcceleration()* GetTime())*delta/59.1;
+			bottom += (GetAcceleration()* GetTime())*delta/59.1;
 
 		}
 
@@ -192,6 +232,8 @@ void DisplaySprite(Window * w){
 			al_draw_bitmap(idle[i],vecx,vecy, face);
 		}
 		ShowHitBox();
+
+
 		//std::cout<<"Top: "<<top<<"\t";
 		//std::cout<<"\n Bottom: "<<bottom<<endl;
 		//std::cout<<"Left: "<<left<<"\t";
@@ -210,23 +252,37 @@ void DisplaySprite(Window * w){
 
 		i = 0;
 		showhitbox = 0;
+		onground = false;
 		face = 0;
 		mg = 90.8;
+		speed = 0;
 		motion = false;
 		collide = false;
+		onground = false;
+		//fall = true;
 		fall = true;
-
 		//al_draw_filled_rectangle(205, 214, 220, 278, al_map_rgb(0,0,200));
 		//void al_draw_filled_rectangle(float x1, float y1, float x2, float y2,ALLEGRO_COLOR color)
+
 
 		top = 214;
 		bottom = 278;
 		left = 205;
 		right = 220;
+		vecx= vecy = 150;
+
 
 		//std::cout<<"motion: "<<motion<<std::endl;
 
-		vecx=vecy = 150;
+/*
+		vecx = 150;
+		vecy = 325;
+		top = 390;
+		bottom = 453;
+		left = 205;
+		right = 220;
+*/
+
 		custpath = al_create_path("");
 		al_append_path_component(custpath,"Onre");
 		al_change_directory(al_path_cstr(custpath,ALLEGRO_NATIVE_PATH_SEP));
@@ -304,42 +360,7 @@ void DisplaySprite(Window * w){
 	}
 
 ~Onre(){
-	delete this;
+	//delete this;
 
 	}
 };
-
-
-
-
-
-
-/*
-bool static Controls(Window *w){
-
-	switch(w->GetEvent().keyboard.keycode){
-
-		case ALLEGRO_KEY_ESCAPE:
-			return false;
-		break;
-
-		case ALLEGRO_KEY_LEFT:
-			std::cout<<"Move left";
-		break;
-
-		case ALLEGRO_KEY_RIGHT:
-
-		break;
-
-		case ALLEGRO_KEY_DOWN:
-
-		break;
-
-		case ALLEGRO_KEY_SPACE:
-
-		break;
-
-		}
-
-	return true;
-}*/
