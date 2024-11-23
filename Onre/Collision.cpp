@@ -30,13 +30,13 @@ void Collision::CollideForGround(Onre* player, vector<GameObject*> ground){
 
 	for(it = ground.begin(); it != ground.end(); ++it ){
 		(*it)->DrawObject();
-		++it;
+
 	}
 
 	for(it = ground.begin(); it != ground.end(); ++it ){
 
-		//(*it)->DrawObject();
-		if(player->GetLeft() > (*it)->GetLeft()-2 && player->GetRight() < (*it)->GetRight()+10
+		//(*it)->DrawObject(); -2
+		if(player->GetLeft() > (*it)->GetLeft()-10 && player->GetRight() < (*it)->GetRight()+10
 		&& player->GetBottom() > (*it)->GetTop() && player->GetTop() < (*it)->GetBottom()){
 			player->SetIsOnGround(true);
 
@@ -44,14 +44,25 @@ void Collision::CollideForGround(Onre* player, vector<GameObject*> ground){
 			break;
 
 		}
+
 		else{
 			player->SetIsOnGround(false);
 		}
 
 
+	}
+
+	/*
+	else if(player->GetTop() >= (*it)->GetTop() && player->GetRight() >= (*it)->GetLeft() && player->GetBottom() >(*it)->GetTop() ){
+			player->HitAWall();
+
+			player->SetIsOnGround(false);
+
 		}
 
 
+		else if(player->GetBottom() > (*it)->GetTop() && player->GetRight() <= (*it)->GetRight() && player->GetRight() > (*it)->GetLeft() )
+	*/
 		//	player->SetFall(true);
 
 

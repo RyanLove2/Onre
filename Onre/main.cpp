@@ -15,6 +15,7 @@
 
 using namespace std;
 
+vector<GameObject*> plat;
 
 
 
@@ -34,9 +35,17 @@ void StartUpLibraries(){
 }
 
 void LevelOneCreate(){
-
-
-
+	float x = 150;
+	float y =  450;
+	float m = 451;
+	//GameObject* l;
+	for(int i = 0; i < 10; ++i){
+		GameObject* l = new GameObject();
+		l->CreatePlatforms(0);
+		l->SetDrawObject(x=x+50,y,m,0);
+		//plat.push_back(l);
+	}
+	//return l;
 }
 
 int main(int argc, char* argv[]){
@@ -78,45 +87,40 @@ int main(int argc, char* argv[]){
 	GameObject* land2 = new GameObject();
 	GameObject* land3 = new GameObject();
 	GameObject* land4 = new GameObject();
+	GameObject* land5 = new GameObject();
+	GameObject* land6 = new GameObject();
+	GameObject* land7 = new GameObject();
 
 	land->CreatePlatforms(0);
 	land1->CreatePlatforms(0);
 	land2->CreatePlatforms(0);
 	land3->CreatePlatforms(0);
 	land4->CreatePlatforms(0);
+	land5->CreatePlatforms(0);
+	land6->CreatePlatforms(0);
+	land7->CreatePlatforms(0);
 
-	vector<GameObject*> plat;
-	plat = {land,land1,land2,land3, land4};
+	land->SetDrawObject(200,450,451,0);
+	land1->SetDrawObject(250,450,451,0);
+	land2->SetDrawObject(300,450,451,0);
+	land3->SetDrawObject(350,450,451,0);
+	land4->SetDrawObject(400,450,451,0);
+	land5->SetDrawObject(450,450,451,0);
+	land6->SetDrawObject(500,450,451,0);
+	land7->SetDrawObject(550,450,451,0);
 
+	vector<GameObject*>::iterator it;
+	plat = {land,land1,land2,land3,land4,land5,land6,land7};
+	//cout<<plat.size();
+
+
+	//LevelOneCreate();
+	//plat.push_back(LevelOneCreate());
 	//GameObject* land2 = new GameObject();
 	Collision* BoxCollision = new Collision();
 
 
 
-	plat.push_back(land);
-	plat.push_back(land1);
-	plat.push_back(land2);
-	plat.push_back(land3);
-	plat.push_back(land4);
-
-/*
-	lands[0] = land;
-	lands[1] = land1;
-	lands[2] = land2;
-	lands[3] = land3;
-	lands[4] = land4;
-
-*/
-
-	land->SetDrawObject(200,450,451,0);
-	land1->SetDrawObject(247,450,451,0);
-	land2->SetDrawObject(295,450,451,0);
-	land3->SetDrawObject(342,450,451,0);
-	land4->SetDrawObject(389,450,451,0);
-
-
-
-	//land2->CreatePlatforms(0);
 
 
 
@@ -132,6 +136,7 @@ int main(int argc, char* argv[]){
 				case ALLEGRO_EVENT_KEY_DOWN:// later move this to player code
 
 					run = player->Controls(window);
+
 				break;
 
 
@@ -152,19 +157,6 @@ int main(int argc, char* argv[]){
 		if(window->render == true && al_is_event_queue_empty(window->GetEventQue())){
 
 			al_clear_to_color(al_map_rgb(0,140,0));
-			//al_draw_filled_rectangle(150, 452, 750, 500, al_map_rgb(120,40,200));
-			//land->DrawObject(200,450,451,0);//150 451
-			//void al_draw_filled_rectangle(float x1, float y1, float x2, float y2,ALLEGRO_COLOR color)
-			//land2->DrawObject(247,450,451,0);
-
-
-
-			//BoxCollision->CollideForGround(player , plat);
-			//land->DrawObject(52,450,451,0);
-			//land1->DrawObject(103,450,451,0);
-
-			//land3->DrawObject(247,450,451,0);
-			//land4->DrawObject(247,450,451,0);
 
 			//for(auto item: plat){
 
@@ -172,25 +164,19 @@ int main(int argc, char* argv[]){
 
 			//
 
-			BoxCollision->CollideForGround(player , plat);
 
+			BoxCollision->CollideForGround(player , plat);
+			/*
+		for(it = plat.begin(); it != plat.end(); ++it ){
+				(*it)->DrawObject();
+				cout<<1<<endl;
+			}
+			*/
 
 			player->DisplaySprite(window);
 
-			//BoxCollision->CollideForGround(player , land);
-			//test = BoxCollision->CollideForGround(player , land3);
 
 
-
-
-			//player->SetFall(test);
-				//if(test == false){
-			//		player->SetFall(test);
-				//	break;
-			//	}
-
-
-		//	}
 
 
 
