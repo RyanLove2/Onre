@@ -1,0 +1,49 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctu4q4ltj6kcw"]
+
+[ext_resource type="PackedScene" uid="uid://deki8xbiqtscd" path="res://Menu/menubutton.tscn" id="1_lsme8"]
+[ext_resource type="Script" path="res://menu.gd" id="1_ws104"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_ws104")
+
+[node name="btn_start" parent="." instance=ExtResource("1_lsme8")]
+offset_left = 412.0
+offset_top = 194.0
+offset_right = 739.0
+offset_bottom = 306.0
+
+[node name="btn_quit" parent="." instance=ExtResource("1_lsme8")]
+offset_left = 412.0
+offset_top = 500.0
+offset_right = 739.0
+offset_bottom = 612.0
+scale = Vector2(0.9573, 0.955503)
+
+[node name="start" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 250.0
+offset_right = 340.0
+offset_bottom = 273.0
+scale = Vector2(1.87081, 1.68735)
+text = "Start"
+
+[node name="quit" type="Label" parent="."]
+offset_left = 300.0
+offset_top = 550.0
+offset_right = 340.0
+offset_bottom = 573.0
+scale = Vector2(1.87081, 1.68735)
+text = "Quit
+"
+
+[node name="Title" type="Label" parent="."]
+offset_left = 350.0
+offset_right = 609.0
+offset_bottom = 49.0
+scale = Vector2(1.87081, 1.68735)
+text = "Onre
+My murder was my  one true love"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="btn_start" to="." method="startButtonPressed"]
+[connection signal="pressed" from="btn_quit" to="." method="quitButtonPressed"]
