@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED = 150 #300
-const JUMP_VELOCITY = 1.1
+const JUMP_VELOCITY = 1.5 
 var Onreface
 var attacking 
 var onfloor
@@ -21,8 +21,6 @@ enum playerstate {
 	fall,
 	attack,
 	attackright,
-	jump,
-	jumpleft
 }
 
 
@@ -31,15 +29,15 @@ func _onready():
 	attacking = false
 	onfloor = false
 	jumpclock.one_shot = true
+	currentstate = playerstate.fall
 	add_child(jumpclock)
 
 
 func JumpingState(delta):
 	print("We are in the jumping state")
-	velocity -= (JUMP_VELOCITY)*get_gravity() * delta
 	
-	  
-	pass
+	velocity -= (JUMP_VELOCITY)*get_gravity() * delta
+
 
 func _physics_process(delta):
 	#Add the gravity.	
@@ -74,7 +72,7 @@ func _physics_process(delta):
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		currentstate = playerstate.fall
+		#currentstate = playerstate.fall
 	elif is_on_floor() and Onreface == false:
 		currentstate = playerstate.idle
 	elif is_on_floor() and currentstate == playerstate.fall:
@@ -114,13 +112,13 @@ func _physics_process(delta):
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		
-		jumpclock.start(2.4)
+		jumpclock.start(0.7)
 		if(Onreface == false):
-			currentstate = playerstate.jump
+			currentstate = playerstate.fall
 			
 		elif(Onreface == true):
-			currentstate = playerstate.jumpleft
-			
+			currentstate = playerstate.fall
+		
 		
 	if Input.is_action_just_pressed("enter"):
 		currentstate = playerstate.attack
@@ -132,7 +130,7 @@ func _physics_process(delta):
 
 	if(jumpclock.time_left > 0):
 		JumpingState(delta)
-	
+	print(currentstate)
 	match currentstate:
 		playerstate.idle:
 			
@@ -158,7 +156,7 @@ func _physics_process(delta):
 		playerstate.fall:
 			$Onreani.play("fall")
 		_:
-
+			
 			pass
 				
 	#print(currentstate)	
@@ -194,8 +192,7 @@ func _physics_process(delta):
 		
 	
 		
-
-		
+	
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction = Input.get_axis("left", "right")
@@ -205,7 +202,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	#print(Onreface)
-	print(jumpclock.time_left)	
+	print("Jump Clock:",jumpclock.time_left)	
 		
 	
 	
