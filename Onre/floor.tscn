@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://b64ekk2pjlj6a"]
+
+[ext_resource type="Texture2D" uid="uid://ceb1scb0pchxx" path="res://Land/stone_platform.png" id="1_hdrdk"]
+[ext_resource type="Texture2D" uid="uid://gbd5dhq8xxrq" path="res://Land/brickbck.png" id="2_sm5fm"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ric0s"]
+resource_name = "floor"
+texture = ExtResource("1_hdrdk")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csnha"]
+texture = ExtResource("2_sm5fm")
+texture_region_size = Vector2i(50, 50)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-25, -25, 25, -25, 25, 25, -25, 25)
+
+[sub_resource type="TileSet" id="TileSet_51kft"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ric0s")
+sources/7 = SubResource("TileSetAtlasSource_csnha")
+
+[node name="floor" type="TileMapLayer"]
+tile_set = SubResource("TileSet_51kft")

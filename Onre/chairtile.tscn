@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://duuly3fh81prq"]
+
+[ext_resource type="Texture2D" uid="uid://b73qmf2fwokkv" path="res://Environment/chair.png" id="1_vcg8s"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1nus"]
+texture = ExtResource("1_vcg8s")
+separation = Vector2i(0, 28)
+texture_region_size = Vector2i(50, 50)
+10:1/0 = 0
+10:1/0/physics_layer_5/polygon_0/points = PackedVector2Array(20.8597, 5.65685, 19.0919, 8.83883, 25, 13.7886, 25, 9.54594)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xvpl"]
+texture = ExtResource("1_vcg8s")
+margins = Vector2i(0, 28)
+texture_region_size = Vector2i(50, 50)
+3:1/0 = 0
+3:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-1.75, -15, 3.75, 6.25, 18.25, 4.5, 25, 20.25, 20.75, 20.5, 16.5, 10.5, 6, 11.75, 8.25, 22.75, 4.25, 25, -8.75, -15.75)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fl4yk"]
+texture = ExtResource("1_vcg8s")
+margins = Vector2i(0, 28)
+texture_region_size = Vector2i(50, 50)
+1:1/0 = 0
+1:1/0/texture_origin = Vector2i(50, 50)
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-51.6721, -25.3906, -51.8948, -40.0904, -67.4058, -40.9474, -68.8219, -70.6037, -73.4991, -69.7128, -73.2764, -25.3906, -67.4856, -25.1679, -68.0357, -37.7976, -57.463, -36.7496, -56.7948, -25.6133)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xgd3n"]
+texture = ExtResource("1_vcg8s")
+margins = Vector2i(0, 28)
+texture_region_size = Vector2i(50, 50)
+6:1/0 = 0
+6:1/0/physics_layer_2/polygon_0/points = PackedVector2Array(-8.83883, -25, -5.3033, -21.5668, -10.253, 2.12132, 4.5962, 9.89949, 0.707106, 25, -3.18198, 25, -2.12132, 13.435, -12.0208, 9.54594, -14.8492, 20.1525, -21.2132, 20.1525)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8hdn5"]
+texture = ExtResource("1_vcg8s")
+margins = Vector2i(0, 28)
+texture_region_size = Vector2i(50, 50)
+8:1/0 = 0
+8:1/0/physics_layer_3/polygon_0/points = PackedVector2Array(25, -1.38898, 13.4929, 2.3811, 13.6913, 6.54803, 23.2157, 4.16693, 25, 15.874, 16.6677, 19.0488, 17.6598, 21.6283, 25, 21.0331)
+9:1/0 = 0
+9:1/0/physics_layer_4/polygon_0/points = PackedVector2Array(-25, -0.8909, 4.89994, -10.4681, 5.34539, -5.34539, -20.4907, 1.33635, -18.0407, 18.0407, -25, 19.5998, -25, 16.2589, -22.7179, 15.368, -23.1634, 6.45901)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wji3b"]
+texture = ExtResource("1_vcg8s")
+separation = Vector2i(0, 28)
+texture_region_size = Vector2i(50, 50)
+11:1/0 = 0
+11:1/0/physics_layer_6/polygon_0/points = PackedVector2Array(17.3241, 20.5061, -16.617, -7.07107, -20.5061, -4.94975, -12.3744, 4.94975, -19.0919, 12.0208, -25, 8.83883, -25, 12.7279, -19.799, 18.0312, -8.13173, 8.48528, 13.0815, 25)
+
+[sub_resource type="TileSet" id="TileSet_rdloa"]
+tile_size = Vector2i(50, 50)
+physics_layer_0/collision_layer = 1
+physics_layer_1/collision_layer = 1
+physics_layer_2/collision_layer = 1
+physics_layer_3/collision_layer = 1
+physics_layer_4/collision_layer = 1
+physics_layer_5/collision_layer = 1
+physics_layer_6/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_fl4yk")
+sources/1 = SubResource("TileSetAtlasSource_2xvpl")
+sources/3 = SubResource("TileSetAtlasSource_xgd3n")
+sources/4 = SubResource("TileSetAtlasSource_8hdn5")
+sources/0 = SubResource("TileSetAtlasSource_t1nus")
+sources/5 = SubResource("TileSetAtlasSource_wji3b")
+
+[node name="chair" type="TileMapLayer"]
+tile_set = SubResource("TileSet_rdloa")
