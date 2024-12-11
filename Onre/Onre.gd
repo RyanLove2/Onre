@@ -7,11 +7,13 @@ var Onreface
 var attacking 
 var onfloor
 var currentstate
+var weapon_selection
 var start
 
 var customMachine =  preload("res://Scripts/OnreStateMachine.gd")
 var mystate = AttackState.new()
 var jumpclock = Timer.new()
+var attackclock = Timer.new()
 
 enum playerstate {
 	idle,
@@ -29,13 +31,24 @@ func _onready():
 	attacking = false
 	onfloor = false
 	jumpclock.one_shot = true
+	attackclock.one_shot = true
+	weapon_selection = 0
 	currentstate = playerstate.fall
 	add_child(jumpclock)
+	add_child(attackclock)
 
+
+func WeaponSelection():
+
+		if weapon_selection >= 3:
+			weapon_selection=0
+		else:
+			weapon_selection +=1 
+		
+	
 
 func JumpingState(delta):
-	print("We are in the jumping state")
-	
+	#print("We are in the jumping state")
 	velocity -= (JUMP_VELOCITY)*get_gravity() * delta
 
 
@@ -72,13 +85,14 @@ func _physics_process(delta):
 		
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-		#currentstate = playerstate.fall
+		currentstate = playerstate.fall
 	elif is_on_floor() and Onreface == false:
-		currentstate = playerstate.idle
-	elif is_on_floor() and currentstate == playerstate.fall:
-		currentstate = playerstate.idle
-	else:
-		currentstate = playerstate.idleleft
+		if currentstate != playerstate.attack:
+			currentstate = playerstate.idle
+	elif is_on_floor() and Onreface == true:
+		if currentstate != playerstate.attack:
+			currentstate = playerstate.idleleft
+	
 	
 	if Input.is_action_pressed("left"):
 		Onreface = true
@@ -119,12 +133,15 @@ func _physics_process(delta):
 		elif(Onreface == true):
 			currentstate = playerstate.fall
 		
+	if Input.is_action_just_pressed("select"):
+		WeaponSelection()
 		
 	if Input.is_action_just_pressed("enter"):
-		currentstate = playerstate.attack
-		# need to show differen attack determined if player is on the floor of not
-		pass
+		if attackclock.time_left < 1:
+			currentstate = playerstate.attack
+			attackclock.start(.5)
 	
+	#print("ATTACK CLOCK:",attackclock.time_left)
 	
 		
 
@@ -151,8 +168,17 @@ func _physics_process(delta):
 			$Onre.flip_h = true
 			
 		playerstate.attack:
-			$Onreani.play("attack")
-			
+
+			if weapon_selection == 0:
+				$Onreani.play("knife")	
+			elif weapon_selection == 1:
+				$Onreani.play("knifelo")
+			elif weapon_selection == 2:
+				$Onreani.play("knifest")
+			elif weapon_selection == 3:
+				$Onreani.play("screech")
+			if attackclock.time_left == 0:
+				currentstate = playerstate.idle
 		playerstate.fall:
 			$Onreani.play("fall")
 		_:
@@ -160,7 +186,7 @@ func _physics_process(delta):
 			pass
 				
 	#print(currentstate)	
-		
+	print("Wepone selected:" , weapon_selection)
 	#if Input.is_action_pressed("left"):
 	#	Onreface = false
 		#attacking = false
