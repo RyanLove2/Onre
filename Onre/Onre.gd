@@ -69,15 +69,7 @@ func _physics_process(delta):
 	else:
 		Onreface = false
 		
-	#print(Onreface)
-	# Handle jump.
-	#if Input.is_action_just_pressed("jump") and is_on_floor() and Onreface == true:
-#		velocity.y = JUMP_VELOCITY
-#		state_machine.travel("jump")
-#		inair = true
-#	elif Input.is_action_just_pressed("jump") and is_on_floor() and Onreface == false:
-#		state_machine.travel("jumpleft")
-#		inair = true
+
 
 	
 

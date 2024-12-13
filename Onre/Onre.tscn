@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b7bpn787fw87j"]
+[gd_scene load_steps=23 format=3 uid="uid://b7bpn787fw87j"]
 
 [ext_resource type="Script" path="res://Onre.gd" id="1_6l7nh"]
 [ext_resource type="Texture2D" uid="uid://bawha8sjgi47x" path="res://Onre/Walk.png" id="2_eerep"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://eb0hsu65so1d" path="res://Onre/Attack_3.png" id="7_d6n0u"]
 [ext_resource type="Texture2D" uid="uid://dlfyhavv25lat" path="res://Onre/Scream.png" id="8_3hs4a"]
 [ext_resource type="Texture2D" uid="uid://cs2fkcf16popw" path="res://Onre/Run.png" id="9_7d6tj"]
+[ext_resource type="PackedScene" uid="uid://dpx86wphaisou" path="res://playerui.tscn" id="10_fr2n6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lps2e"]
 size = Vector2(12.5, 61.5)
@@ -718,5 +719,14 @@ libraries = {
 "": SubResource("AnimationLibrary_rosvo")
 }
 speed_scale = 1.9
+
+[node name="Camera2D" type="Camera2D" parent="."]
+drag_vertical_offset = -1.0
+
+[node name="Control" parent="Camera2D" instance=ExtResource("10_fr2n6")]
+offset_left = 419.0
+offset_top = -371.0
+offset_right = 419.0
+offset_bottom = -371.0
 
 [connection signal="ready" from="." to="." method="_onready"]
