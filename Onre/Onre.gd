@@ -11,9 +11,12 @@ var weapon_selection
 var start
 
 var customMachine =  preload("res://Scripts/OnreStateMachine.gd")
+var wp = load("res://Scripts/WeaponSelectionCode.gd")
+var wp_obj = wp.new()
 var mystate = AttackState.new()
 var jumpclock = Timer.new()
 var attackclock = Timer.new()
+@onready var life = 0
 
 enum playerstate {
 	idle,
@@ -38,14 +41,7 @@ func _onready():
 	add_child(attackclock)
 
 
-func WeaponSelection():
 
-		if weapon_selection >= 3:
-			weapon_selection=0
-		else:
-			weapon_selection +=1 
-		
-	
 
 func JumpingState(delta):
 	#print("We are in the jumping state")
@@ -126,7 +122,8 @@ func _physics_process(delta):
 			currentstate = playerstate.fall
 		
 	if Input.is_action_just_pressed("select"):
-		WeaponSelection()
+		weapon_selection = wp_obj.WeaponSelection(weapon_selection)
+		pass
 		
 	if Input.is_action_just_pressed("enter"):
 		if attackclock.time_left < 1:
@@ -139,7 +136,7 @@ func _physics_process(delta):
 
 	if(jumpclock.time_left > 0):
 		JumpingState(delta)
-	print(currentstate)
+	#print(currentstate)
 	match currentstate:
 		playerstate.idle:
 			
@@ -178,7 +175,7 @@ func _physics_process(delta):
 			pass
 				
 	#print(currentstate)	
-	print("Wepone selected:" , weapon_selection)
+	#print("Wepone selected:" , weapon_selection)
 	#if Input.is_action_pressed("left"):
 	#	Onreface = false
 		#attacking = false
@@ -220,7 +217,7 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 	#print(Onreface)
-	print("Jump Clock:",jumpclock.time_left)	
+	#print("Jump Clock:",jumpclock.time_left)	
 		
 	
 	

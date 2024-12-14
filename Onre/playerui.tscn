@@ -1,0 +1,213 @@
+[gd_scene load_steps=31 format=3 uid="uid://dpx86wphaisou"]
+
+[ext_resource type="Script" path="res://playerui.gd" id="1_6tnyb"]
+[ext_resource type="Texture2D" uid="uid://eq0xubfi6fh7" path="res://ui/lifebar.png" id="1_pxaye"]
+[ext_resource type="Texture2D" uid="uid://bhstih26w1xr3" path="res://ui/aniwepsel.png" id="2_ht2jc"]
+[ext_resource type="Texture2D" uid="uid://cf2trvtuypovm" path="res://ui/screechupui.png" id="3_b55ad"]
+[ext_resource type="Texture2D" uid="uid://cpr2jx5i546na" path="res://ui/powerui.png" id="4_okblu"]
+[ext_resource type="Texture2D" uid="uid://cjg6yxjif78x1" path="res://ui/powerscreechui.png" id="5_fexbw"]
+[ext_resource type="Texture2D" uid="uid://cdk4dpv538ujx" path="res://ui/powerfireui.png" id="6_il0jc"]
+[ext_resource type="Texture2D" uid="uid://bakn723ewihuo" path="res://ui/powerslimeui.png" id="7_athe6"]
+[ext_resource type="Texture2D" uid="uid://bb2x7t0l6r70f" path="res://ui/powerteleui.png" id="8_5w82y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fjyrm"]
+bg_color = Color(0.184779, 0.156196, 0.236216, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3rxsr"]
+atlas = ExtResource("2_ht2jc")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3inr"]
+atlas = ExtResource("2_ht2jc")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vu5cf"]
+atlas = ExtResource("2_ht2jc")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbacc"]
+atlas = ExtResource("3_b55ad")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r3kdo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3rxsr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3inr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vu5cf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbacc")
+}],
+"loop": true,
+"name": &"Aniselection",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exwv4"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rytqb"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(150, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tke24"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(300, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj3nu"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(450, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32pdv"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(600, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qco23"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(750, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fc2xj"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(900, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_htmdd"]
+atlas = ExtResource("1_pxaye")
+region = Rect2(1050, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ddat4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exwv4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rytqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tke24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj3nu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32pdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qco23")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fc2xj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_htmdd")
+}],
+"loop": true,
+"name": &"LifeBar",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wvbd"]
+atlas = ExtResource("4_okblu")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k816p"]
+atlas = ExtResource("5_fexbw")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohq6f"]
+atlas = ExtResource("6_il0jc")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkiq0"]
+atlas = ExtResource("7_athe6")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcwf7"]
+atlas = ExtResource("8_5w82y")
+region = Rect2(0, 0, 150, 150)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u5ul3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wvbd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k816p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohq6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkiq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcwf7")
+}],
+"loop": true,
+"name": &"power",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control"]
+z_index = -10
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 991.0
+offset_top = 12.0
+offset_right = -11.0
+offset_bottom = -486.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_6tnyb")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+z_index = 1
+z_as_relative = false
+layout_mode = 0
+offset_left = -996.0
+offset_top = 520.0
+offset_right = 175.0
+offset_bottom = 636.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_fjyrm")
+
+[node name="Container" type="HBoxContainer" parent="PanelContainer"]
+z_index = 1
+layout_mode = 2
+
+[node name="weapon_selection" type="AnimatedSprite2D" parent="PanelContainer/Container"]
+z_index = 1
+z_as_relative = false
+position = Vector2(685, 68)
+scale = Vector2(0.733333, 0.58)
+sprite_frames = SubResource("SpriteFrames_r3kdo")
+animation = &"Aniselection"
+
+[node name="playerportrait" type="AnimatedSprite2D" parent="PanelContainer/Container"]
+z_index = 1
+z_as_relative = false
+position = Vector2(580, 68)
+scale = Vector2(0.700002, 0.583332)
+sprite_frames = SubResource("SpriteFrames_ddat4")
+animation = &"LifeBar"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="PanelContainer/Container"]
+position = Vector2(1088, 67)
+scale = Vector2(0.67, 0.613333)
+sprite_frames = SubResource("SpriteFrames_u5ul3")
+animation = &"power"
